@@ -6,10 +6,10 @@ public class ProcessPipe
     public ObservableCollection<string> Output { get; set; } = new ObservableCollection<string>();
     public ObservableCollection<string> Error { get; set; } = new ObservableCollection<string>();
     public bool RestartIfExited { get; set; } = true;
-    public ProcessPipe(string filename)
+    public ProcessPipe(string filename, string nodeAppDirectory)
     {
         Id = Guid.NewGuid().ToString();
-        var dir = Regex.Split(Directory.GetCurrentDirectory(), @"(?=.+)(\\ThroughPutSolution).+").Aggregate("", (a, c) => a + c) + @"\ThroughPutSolution\";
+        var dir = nodeAppDirectory;
         var file = Directory.GetFiles(dir, "electron.exe", SearchOption.AllDirectories).FirstOrDefault();
         if (file != null)
             MainProcess.StartInfo = new ProcessStartInfo(file)
