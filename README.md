@@ -1,2 +1,5 @@
 # CSharpToNode
-Connecting Pipe Work to a Node.js process that uses Electron
+
+This class is used to send messages to and from c# and Node.js electron
+
+
